@@ -1,0 +1,5 @@
+{"access_token":"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkMyQk0iLCJzdWIiOiI4WDRQUlMiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJhY3QgcnNldCBybG9jIHJ3ZWkgcmhyIHJudXQgcnBybyByc2xlIiwiZXhwIjoxNjA0MTcxODQ1LCJpYXQiOjE2MDQxNDMwNDV9.z0P9weBTANveui5dztv4-FYffrugEFaA479CGDUGkvM",
+"expires_in":28800,"refresh_token":"61cd019c326e485f58fc7da15de632d09c8d07361d598873838d2acbf5c1a2db",
+"scope":"nutrition activity location profile weight social settings sleep heartrate",
+"token_type":"Bearer",
+"user_id":"8X4PRS"}
