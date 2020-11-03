@@ -1,3 +1,5 @@
+#memo: curl, cmdやpowerchellだとダメだけど、git Bash だと上手くいった。
+
 # -*- coding: utf-8 -*-
 # fitbit autholization
 import fitbit
@@ -54,9 +56,16 @@ dates_list = build_date_list()
 def get_activities():
     activities_dict={}
     for DATE in dates_list:
-        value = authed_client.intraday_time_series('activities/steps', base_date=DATE, detail_level='1min', start_time="00:00", end_time="23:59") 
+        # steps 
+        value = authed_client.intraday_time_series('activities/steps', base_date=DATE, detail_level='1min', start_time="07:00", end_time="22:00") 
         activities_dict[value["activities-steps"][0]["dateTime"]]=value["activities-steps"][0]["value"]
-        print("value",value)
+        # print("value",value)
+
+        # sleep
+        # sleep = authed_client.sleep(date=DATE)
+        # print("sleep",sleep["sleep"][0]['minutesAsleep'])
+        # activities_dict["totalMinutesAsleep"]=sleep["summary"]
+
     return activities_dict
 
 activities_dict = get_activities()
