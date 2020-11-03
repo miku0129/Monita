@@ -56,11 +56,11 @@ def get_activities():
     for DATE in dates_list:
         value = authed_client.intraday_time_series('activities/steps', base_date=DATE, detail_level='1min', start_time=None, end_time=None) 
         activities_dict[value["activities-steps"][0]["dateTime"]]=value["activities-steps"][0]["value"]
-        # print("activities_dict",activities_dict)
     return activities_dict
 
 activities_dict = get_activities()
 
+# google spreadsheetに書き込み「
 def print_activities(dict):
     for key in dict: 
         column = []
