@@ -5,9 +5,9 @@ from ast import literal_eval
 from datetime import datetime, timedelta, timezone
 
 # google spread sheet 
-# import gspread
-# import json
-# from oauth2client.service_account import ServiceAccountCredentials 
+import gspread
+import json
+from oauth2client.service_account import ServiceAccountCredentials 
 
 
 CLIENT_ID     = "22C2BM"
@@ -37,19 +37,38 @@ def build_date_list():
         date_array.append(str(date))
     return date_array
 
+# google spreadsheet 
+scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+
+credentials = ServiceAccountCredentials.from_json_keyfile_name('bigminiconf-nov2020-f59c478cf5b4.json', scope)
+
+gc = gspread.authorize(credentials)
+
+SPREADSHEET_KEY = '1PoZAzkhmf1dRxCsNAAnrWWBRwlSYkcq_6UJaB_laFUY'
+
+worksheet = gc.open_by_key(SPREADSHEET_KEY).sheet1
+
+
 dates_list = build_date_list()
 
 def get_activities():
     activities_dict={}
     for DATE in dates_list:
         value = authed_client.intraday_time_series('activities/steps', base_date=DATE, detail_level='1min', start_time=None, end_time=None) 
-        activities_dict[DATE] = value
-        print("value",value["activities-steps"][0])
+        activities_dict[value["activities-steps"][0]["dateTime"]]=value["activities-steps"][0]["value"]
+        # print("activities_dict",activities_dict)
     return activities_dict
 
-result = get_activities()
+activities_dict = get_activities()
 
+def print_activities(dict):
+    for key in dict: 
+        column = []
+        column.append(key)
+        column.append(dict[key])
+        worksheet.append_row(column)
 
+print_activities(activities_dict) 
 
 
 
