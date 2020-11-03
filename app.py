@@ -10,8 +10,8 @@ import json
 from oauth2client.service_account import ServiceAccountCredentials 
 
 
-CLIENT_ID     = "22C2BM"
-CLIENT_SECRET = "0d0a664b49593f88e297a7f24c2c8157"
+CLIENT_ID     = "22C2HT"
+CLIENT_SECRET = "cd36c066c7dd5191eadf89ff466c5ea5"
 TOKEN_FILE    = "token.txt" #同一ディレクトリに.txtを作る
 
 tokens = open(TOKEN_FILE).read()
@@ -54,8 +54,9 @@ dates_list = build_date_list()
 def get_activities():
     activities_dict={}
     for DATE in dates_list:
-        value = authed_client.intraday_time_series('activities/steps', base_date=DATE, detail_level='1min', start_time=None, end_time=None) 
+        value = authed_client.intraday_time_series('activities/steps', base_date=DATE, detail_level='1min', start_time="00:00", end_time="23:59") 
         activities_dict[value["activities-steps"][0]["dateTime"]]=value["activities-steps"][0]["value"]
+        print("value",value)
     return activities_dict
 
 activities_dict = get_activities()
