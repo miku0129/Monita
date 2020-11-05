@@ -13,7 +13,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 
 CLIENT_ID     = "22C2HT"
-CLIENT_SECRET = "cd36c066c7dd5191eadf89ff466c5ea5"
+CLIENT_SECRET = "cd36c066c7dd5191eadf89ff466c5ea5" 
 TOKEN_FILE    = "token.txt" #同一ディレクトリに.txtを作る
 
 tokens = open(TOKEN_FILE).read()
@@ -59,7 +59,7 @@ def get_activities():
         # steps 
         value = authed_client.intraday_time_series('activities/steps', base_date=DATE, detail_level='1min', start_time="07:00", end_time="22:00") 
         activities_dict[value["activities-steps"][0]["dateTime"]]=value["activities-steps"][0]["value"]
-        # print("value",value)
+        print("value",value)
 
         # sleep
         # sleep = authed_client.sleep(date=DATE)
@@ -68,17 +68,18 @@ def get_activities():
 
     return activities_dict
 
-activities_dict = get_activities()
+get_activities()
+# activities_dict = get_activities()
 
 # google spreadsheetに書き込み「
-def print_activities(dict):
-    for key in dict: 
-        column = []
-        column.append(key)
-        column.append(dict[key])
-        worksheet.append_row(column)
+# def print_activities(dict):
+#     for key in dict: 
+#         column = []
+#         column.append(key)
+#         column.append(dict[key])
+#         worksheet.append_row(column)
 
-print_activities(activities_dict) 
+# print_activities(activities_dict) 
 
 
 
