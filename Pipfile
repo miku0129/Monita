@@ -10,6 +10,7 @@ gspread = "*"
 oauth2client = "*"
 pandas = "*"
 fitbit = "*"
+pandas-gbq = "*"
 
 [requires]
 python_version = "3.8"
