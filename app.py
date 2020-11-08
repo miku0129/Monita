@@ -30,7 +30,8 @@ def build_date_list():
     # タイムゾーンの生成
     JST = timezone(timedelta(hours=+9),'JST')
     for i in range(0,7):
-        date = datetime.now(JST).date() - timedelta(days = i)
+        
+         = datetime.now(JST).date() - timedelta(days = i)
         date_array.append(str(date))
     return date_array
 
@@ -46,6 +47,7 @@ def build_days_metrics_dict(authed_client,dates_list):
         # 該当日のActivity系の指標を取得
         activity_metrics = ['caloriesOut','steps','lightlyActiveMinutes','veryActiveMinutes']
         activity_response = authed_client.activities(date=date)
+        # print("activity_response",activity_response)
         for metrics_name in activity_metrics:
             try:
                 singleday_activity_metrics.append(activity_response['summary'][metrics_name])
@@ -53,6 +55,7 @@ def build_days_metrics_dict(authed_client,dates_list):
                 singleday_activity_metrics.append(0) 
 
         # 該当日の指標を辞書に格納
+        # print("singleday_activity_metrics",singleday_activity_metrics)
         days_result_dict[date] = singleday_activity_metrics
     return days_result_dict
 
