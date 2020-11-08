@@ -30,8 +30,7 @@ def build_date_list():
     # タイムゾーンの生成
     JST = timezone(timedelta(hours=+9),'JST')
     for i in range(0,7):
-        
-         = datetime.now(JST).date() - timedelta(days = i)
+        date = datetime.now(JST).date() - timedelta(days = i)
         date_array.append(str(date))
     return date_array
 
