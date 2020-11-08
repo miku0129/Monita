@@ -1,6 +1,6 @@
-# myFitbit
+# Monita
 
-"myFitbit" is a personalized graph from fitbit data! 
+"Monita" is a personalized graph from fitbit data! 🏃🏃🏃
 
 <img src="https://i.ibb.co/cDRMX3Q/fitbitimg3.jpg" alt="fitbitimg3" border="0">
 
