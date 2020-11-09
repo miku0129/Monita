@@ -2,11 +2,11 @@
 
 "Monita" is a personalized graph from fitbit data! 🏃🏃🏃
 
-<img src="https://i.ibb.co/cDRMX3Q/fitbitimg3.jpg" alt="fitbitimg3" border="0">
+<img src="https://i.ibb.co/vcWZkVJ/fitbit-Img.jpg" alt="fitbit-Img" border="0">
 
 # DEMO
 
-<img src="https://i.ibb.co/hdq1bgD/2020-11-08-093501.jpg" alt="2020-11-08-093501" border="0">
+<img src="https://i.ibb.co/4tLhqhf/2020-11-10-004611.jpg" alt="2020-11-10-004611" border="0">
 
 # Features
 
@@ -25,3 +25,4 @@ Fitbit
 * Miku Sano
 * svartkatt39@gmail.com
 
+Thank you for reading!! 🌈
